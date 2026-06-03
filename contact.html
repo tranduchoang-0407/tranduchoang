@@ -3,16 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Trần Đức Hoàng — Portfolio</title>
+  <title>Liên hệ — Portfolio</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="images/logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-<!-- Orbs -->
 <div class="orb orb1"></div>
 <div class="orb orb2"></div>
+<div class="orb orb3"></div>
+
 <!-- Aero Bubbles -->
 <div class="bubble bubble1"></div>
 <div class="bubble bubble2"></div>
@@ -34,48 +35,61 @@
 <div class="hud-corner hud-tr"></div>
 <div class="hud-corner hud-bl"></div>
 <div class="hud-corner hud-br"></div>
-<div class="orb orb3"></div>
 
-<!-- Sidebar -->
 <nav class="sidebar">
-  <div class="logo">
-    <img src="images/logo.png" alt="Logo">
-  </div>
+  <div class="logo"><img src="images/logo.png" alt="Logo"></div>
   <ul class="sidebar-menu">
-    <li><a href="index.html" class="active"><i class="fa-solid fa-house"></i><span class="text">Trang chủ</span></a></li>
+    <li><a href="index.html"><i class="fa-solid fa-house"></i><span class="text">Trang chủ</span></a></li>
     <li><a href="about.html"><i class="fa-solid fa-user"></i><span class="text">Giới thiệu</span></a></li>
     <li><a href="goals.html"><i class="fa-solid fa-bullseye"></i><span class="text">Mục tiêu</span></a></li>
     <li><a href="projects.html"><i class="fa-solid fa-folder-open"></i><span class="text">Dự án</span></a></li>
     <li><a href="reflection.html"><i class="fa-solid fa-book-open"></i><span class="text">Tổng kết</span></a></li>
-    <li><a href="contact.html"><i class="fa-solid fa-envelope"></i><span class="text">Liên hệ</span></a></li>
+    <li><a href="contact.html" class="active"><i class="fa-solid fa-envelope"></i><span class="text">Liên hệ</span></a></li>
   </ul>
 </nav>
 
-<!-- Hero -->
-<section class="hero">
-  <div class="hero-inner">
+<section id="contact">
+  <div class="section-head reveal">
+    <h2>Liên hệ</h2>
+    <p class="subtitle">Get in touch</p>
+  </div>
 
-    <div class="avatar-wrap">
-      <img src="images/avatar.jpg" alt="Avatar" class="avatar">
-      <div class="avatar-ring"></div>
-    </div>
+  <div class="contact-list reveal" style="max-width:600px;">
 
-    <p class="hero-role">Sinh viên Công nghệ Kỹ thuật Xây dựng</p>
-    <h1 class="hero-name">TRẦN ĐỨC HOÀNG</h1>
-    <p class="hero-desc">
-      Portfolio môn Nhập môn Công nghệ số và Ứng dụng Trí tuệ nhân tạo —
-      Trường Đại học Công nghệ, ĐHQGHN.
-    </p>
-
-    <a href="projects.html" class="btn">
-      <i class="fa-solid fa-folder-open"></i>
-      Xem dự án
+    <a href="https://www.facebook.com/hoangtranduc07" target="_blank" class="contact-item">
+      <i class="fa-brands fa-facebook"></i>
+      <div>
+        <div class="label">Facebook</div>
+        <div class="value">Hoàng Trần Đức</div>
+      </div>
     </a>
 
+    <a href="mailto:hait7283@gmail.com" class="contact-item">
+      <i class="fa-solid fa-envelope"></i>
+      <div>
+        <div class="label">Email</div>
+        <div class="value">hait7283@gmail.com</div>
+      </div>
+    </a>
+
+    <a href="https://github.com/tranduchoang-0407" target="_blank" class="contact-item">
+      <i class="fa-brands fa-github"></i>
+      <div>
+        <div class="label">Github</div>
+        <div class="value">tranduchoang-0407</div>
+      </div>
+    </a>
+
+    <a href="https://soundcloud.com/ho-ng-tr-n-c-984871934" target="_blank" class="contact-item">
+      <i class="fa-brands fa-soundcloud"></i>
+      <div>
+        <div class="label">SoundCloud</div>
+        <div class="value">hoàng trần đức</div>
+      </div>
+    </a>
   </div>
 </section>
 
-<div class="credit">© Web do AI hỗ trợ</div>
 <script src="script.js"></script>
 </body>
 </html>

@@ -1,16 +1,33 @@
+// Scroll reveal
+const revealEls = document.querySelectorAll('.reveal');
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+revealEls.forEach(el => revealObs.observe(el));
 
-const cards=document.querySelectorAll('.card');
-const observer=new IntersectionObserver(entries=>{
-entries.forEach(e=>{
-if(e.isIntersecting){
-e.target.style.opacity='1';
-e.target.style.transform='translateY(0)';
-}
+// Active nav highlight (sidebar)
+const links = document.querySelectorAll('.sidebar-menu a');
+links.forEach(link => {
+  if (link.href === window.location.href) {
+    link.classList.add('active');
+  }
 });
-});
-cards.forEach(card=>{
-card.style.opacity='0';
-card.style.transform='translateY(30px)';
-card.style.transition='0.6s';
-observer.observe(card);
+
+// Liquid glass ripple on card click
+document.querySelectorAll('.card, .contact-item, .btn').forEach(el => {
+  el.addEventListener('click', function(e) {
+    const rect = el.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className = 'liquid-ripple';
+    ripple.style.left = (e.clientX - rect.left - 40) + 'px';
+    ripple.style.top  = (e.clientY - rect.top  - 40) + 'px';
+    el.style.position = 'relative';
+    el.style.overflow = 'hidden';
+    el.appendChild(ripple);
+    ripple.addEventListener('animationend', () => ripple.remove());
+  });
 });
