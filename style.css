@@ -1261,3 +1261,258 @@ body::after {
   pointer-events: none;
   user-select: none;
 }
+
+/* =========================================
+   Y2K FUTURISM EFFECTS
+   ========================================= */
+
+/* --- Scanline overlay --- */
+body {
+  position: relative;
+}
+
+.scanlines {
+  position: fixed;
+  inset: 0;
+  z-index: 9997;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.08) 2px,
+    rgba(0,0,0,0.08) 4px
+  );
+  animation: scanMove 8s linear infinite;
+}
+
+@keyframes scanMove {
+  0%   { background-position: 0 0; }
+  100% { background-position: 0 100px; }
+}
+
+/* --- CRT flicker --- */
+.scanlines::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(0,220,255,0.03) 50%,
+    transparent 100%
+  );
+  animation: crtFlicker 5s ease-in-out infinite;
+}
+
+@keyframes crtFlicker {
+  0%,100% { opacity: 1; }
+  92%      { opacity: 1; }
+  93%      { opacity: 0.6; }
+  94%      { opacity: 1; }
+  96%      { opacity: 0.8; }
+  97%      { opacity: 1; }
+}
+
+/* --- Y2K Futurism: glitch text on headings --- */
+.section-head h2 {
+  position: relative;
+}
+
+.section-head h2::before,
+.section-head h2::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #fff, #a8e8ff, #00e5ff, #c084fc, #fff);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-head h2::before {
+  left: 2px;
+  background: linear-gradient(90deg, #ff00aa, #00e5ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: glitchSlice1 6s infinite;
+}
+
+.section-head h2::after {
+  left: -2px;
+  background: linear-gradient(90deg, #00ffcc, #ff00aa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  opacity: 0;
+  animation: glitchSlice2 6s infinite;
+}
+
+@keyframes glitchSlice1 {
+  0%,89%,100% { opacity:0; transform:translate(0); clip-path: inset(0 0 100% 0); }
+  90%  { opacity:0.7; transform:translate(3px,-1px);  clip-path: inset(20% 0 60% 0); }
+  91%  { opacity:0;   transform:translate(0); }
+  93%  { opacity:0.5; transform:translate(-2px,1px); clip-path: inset(55% 0 20% 0); }
+  94%  { opacity:0; }
+}
+
+@keyframes glitchSlice2 {
+  0%,89%,100% { opacity:0; transform:translate(0); clip-path: inset(0 0 100% 0); }
+  90%  { opacity:0.6; transform:translate(-3px,1px); clip-path: inset(50% 0 30% 0); }
+  92%  { opacity:0; }
+  94%  { opacity:0.5; transform:translate(2px,-1px); clip-path: inset(15% 0 70% 0); }
+  95%  { opacity:0; }
+}
+
+/* --- Y2K Ticker tape --- */
+.ticker-wrap {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 26px;
+  overflow: hidden;
+  z-index: 9996;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.55),
+    rgba(0,20,60,0.70) 30%,
+    rgba(0,20,60,0.70) 70%,
+    rgba(0,0,0,0.55)
+  );
+  border-top: 1px solid rgba(0,220,255,0.25);
+  display: flex;
+  align-items: center;
+}
+
+.ticker {
+  display: flex;
+  gap: 0;
+  animation: tickerScroll 30s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker span {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0,220,255,0.65);
+  padding: 0 40px;
+}
+
+.ticker span.sep {
+  color: rgba(255,255,255,0.20);
+  padding: 0 10px;
+  letter-spacing: 0;
+}
+
+@keyframes tickerScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- Neon glow on active sidebar link --- */
+.sidebar-menu li a.active {
+  text-shadow: 0 0 8px rgba(0,230,255,0.9), 0 0 20px rgba(0,230,255,0.5);
+}
+
+.sidebar-menu li a.active i {
+  filter: drop-shadow(0 0 6px #00e5ff) drop-shadow(0 0 14px #00e5ff);
+}
+
+/* --- Y2K Futurism: card corner brackets --- */
+.card::before {
+  content: "";
+  position: absolute;
+  top: 10px; left: 10px;
+  width: 18px; height: 18px;
+  border-top: 1.5px solid rgba(0,220,255,0.6);
+  border-left: 1.5px solid rgba(0,220,255,0.6);
+  border-radius: 2px 0 0 0;
+  pointer-events: none;
+  z-index: 5;
+  animation: none;
+  background: none;
+}
+
+.card > .corner-br {
+  position: absolute;
+  bottom: 10px; right: 10px;
+  width: 18px; height: 18px;
+  border-bottom: 1.5px solid rgba(0,220,255,0.45);
+  border-right:  1.5px solid rgba(0,220,255,0.45);
+  border-radius: 0 0 2px 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* --- Futurism: data-label HUD on project cards --- */
+#projects .card-proj .proj-num {
+  font-family: 'Montserrat', monospace;
+  font-size: 3rem;
+  font-weight: 800;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0,220,255,0.25);
+  line-height: 1;
+  margin-bottom: 12px;
+  letter-spacing: -2px;
+  transition: -webkit-text-stroke 0.3s ease, color 0.3s ease;
+}
+
+#projects .card-proj:hover .proj-num {
+  -webkit-text-stroke: 1px rgba(0,220,255,0.65);
+  color: transparent;
+  filter: drop-shadow(0 0 8px rgba(0,220,255,0.4));
+}
+
+/* --- Futurism: section subtitle blink cursor --- */
+.section-head .subtitle::after {
+  content: "_";
+  animation: blink 1s step-end infinite;
+  color: rgba(0,220,255,0.7);
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%,100% { opacity:1; }
+  50%      { opacity:0; }
+}
+
+/* --- Neon border pulse on card hover --- */
+@keyframes neonPulse {
+  0%,100% { box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.55), 0 8px 40px rgba(0,0,0,0.35), 0 0 12px rgba(0,220,255,0.15); }
+  50%     { box-shadow: inset 0 1.5px 0 rgba(255,255,255,0.55), 0 8px 40px rgba(0,0,0,0.35), 0 0 28px rgba(0,220,255,0.45); }
+}
+
+.card:hover {
+  animation: neonPulse 2s ease-in-out infinite;
+}
+
+/* --- Y2K loading bar accent (hero page) --- */
+.hero-inner::before {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 5%; right: 5%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(0,220,255,0.8) 30%,
+    rgba(168,85,247,0.8) 70%,
+    transparent
+  );
+  border-radius: 999px;
+  animation: loadBar 3s ease-in-out infinite alternate;
+}
+
+@keyframes loadBar {
+  0%   { opacity:0.3; transform:scaleX(0.4); }
+  100% { opacity:1.0; transform:scaleX(1.0); }
+}
+
+/* Adjust ticker on mobile */
+@media (max-width: 768px) {
+  .ticker-wrap { display: none; }
+}
