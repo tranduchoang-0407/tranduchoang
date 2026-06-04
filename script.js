@@ -31,3 +31,23 @@ document.querySelectorAll('.card, .contact-item, .btn').forEach(el => {
     ripple.addEventListener('animationend', () => ripple.remove());
   });
 });
+
+// === Cursor magnetic glow on cards ===
+const glowTargets = document.querySelectorAll(
+  '.card, #contact .contact-item, .hero-inner'
+);
+
+glowTargets.forEach(el => {
+  // Inject glow-spot div
+  const spot = document.createElement('div');
+  spot.className = 'glow-spot';
+  el.appendChild(spot);
+
+  el.addEventListener('mousemove', e => {
+    const rect = el.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1) + '%';
+    const y = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1) + '%';
+    el.style.setProperty('--mx', x);
+    el.style.setProperty('--my', y);
+  });
+});
