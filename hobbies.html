@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+  <!-- Performance hints -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sở thích — Portfolio</title>
@@ -489,7 +494,7 @@
 <div class="hud-corner hud-br"></div>
 
 <nav class="sidebar">
-  <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+  <div class="logo"><img loading="lazy" decoding="async" src="images/logo.png" alt="Logo"></div>
   <ul class="sidebar-menu">
     <li><a href="index.html"><i class="fa-solid fa-house"></i><span class="text">Trang chủ</span></a></li>
     <li><a href="about.html"><i class="fa-solid fa-user"></i><span class="text">Giới thiệu</span></a></li>
@@ -519,78 +524,78 @@
 
       <!-- ── Ô ảnh 1 — thay src="images/photo1.jpg" bằng ảnh của bạn ── -->
       <div class="photo-slot" data-caption="Vườn hoa">
-        <img src="ảnh film/000705410001.jpg" alt="Ảnh 1"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410001.jpg" alt="Ảnh 1"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">Vườn hoa</span></div>
       </div>
 
       <!-- ── Ô ảnh 2 ── -->
       <div class="photo-slot" data-caption="Một buổi tập band cùng clb">
-        <img src="ảnh film/000705410020.jpg" alt="Ảnh 2"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410020.jpg" alt="Ảnh 2"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">Một buổi tập band cùng clb</span></div>
       </div>
 
       <!-- ── Ô ảnh 3 ── -->
       <div class="photo-slot" data-caption="Một buổi tập band cùng clb">
-        <img src="ảnh film/000705410022.jpg" alt="Ảnh 3"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410022.jpg" alt="Ảnh 3"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">Một buổi tập band cùng clb</span></div>
       </div>
 
       <!-- ── Ô ảnh 4 ── -->
       <div class="photo-slot" data-caption="Hồ Giảng Võ">
-        <img src="ảnh film/000705410035.jpg" alt="Ảnh 4"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410035.jpg" alt="Ảnh 4"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">Hồ Giảng Võ</span></div>
       </div>
 
       <!-- ── Ô ảnh 5 ── -->
       <div class="photo-slot" data-caption="Hồ Giảng Võ">
-        <img src="ảnh film/000705410036.jpg" alt="Ảnh 5"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410036.jpg" alt="Ảnh 5"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">Hồ Giảng Võ</span></div>
       </div>
 
       <!-- ── Ô ảnh 6 ── -->
       <div class="photo-slot" data-caption="Vườn hoa">
-        <img src="ảnh film/000705410037.jpg" alt="Ảnh 6"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410037.jpg" alt="Ảnh 6"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">Vườn hoa</span></div>
       </div>
 
       <div class="photo-slot" data-caption="Hồ Giảng Võ">
-        <img src="ảnh film/000705410033.jpg" alt="Ảnh 6"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410033.jpg" alt="Ảnh 6"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">Hồ Giảng Võ</span></div>
       </div>
 
       <div class="photo-slot" data-caption="CLB Nghệ thuật trường đại học Công Nghệ">
-        <img src="ảnh film/000705410025.jpg" alt="Ảnh 6"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410025.jpg" alt="Ảnh 6"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">CLB Nghệ thuật trường đại học Công Nghệ</span></div>
       </div>
 
       <div class="photo-slot" data-caption="Học viện Viettel">
-        <img src="ảnh film/000705410008.jpg" alt="Ảnh 6"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410008.jpg" alt="Ảnh 6"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">Học viện Viettel</span></div>
       </div>
 
       <div class="photo-slot" data-caption="Phố Tô Hiệu, Hà Đông">
-        <img src="ảnh film/000705410015.jpg" alt="Ảnh 6"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410015.jpg" alt="Ảnh 6"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">Phố Tô Hiệu, Hà Đông</span></div>
       </div>
 
       <div class="photo-slot" data-caption="CLB Nghệ thuật trường đại học Công Nghệ">
-        <img src="ảnh film/000705410028.jpg" alt="Ảnh 6"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410028.jpg" alt="Ảnh 6"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption">CLB Nghệ thuật trường đại học Công Nghệ</span></div>
       </div>
 
       <div class="photo-slot" data-caption="">
-        <img src="ảnh film/000705410007.jpg" alt="Ảnh 6"
+        <img loading="lazy" decoding="async" src="ảnh film/000705410007.jpg" alt="Ảnh 6"
              onerror="this.parentElement.classList.add('empty'); this.remove(); this.parentElement.innerHTML='<i class=\'fa-solid fa-image\'></i><span>Chèn ảnh vào đây</span>'">
         <div class="photo-overlay"><span class="photo-caption"></span></div>
       </div>
@@ -711,7 +716,7 @@
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox">
   <div class="lightbox-close" id="lightboxClose"><i class="fa-solid fa-xmark"></i></div>
-  <img id="lightboxImg" src="" alt="">
+  <img loading="lazy" decoding="async" id="lightboxImg" src="" alt="">
   <div class="lightbox-caption" id="lightboxCaption"></div>
 </div>
 

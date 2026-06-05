@@ -1880,3 +1880,158 @@ body {
 @media (max-width: 480px) {
   .photo-grid { grid-template-columns: 1fr !important; }
 }
+
+/* =========================================
+   PERFORMANCE OPTIMIZATION
+   Giữ nguyên hiệu ứng — chỉ tối ưu render
+   ========================================= */
+
+/* --- GPU layer promotion cho các element animate --- */
+.orb,
+.bubble,
+.flare,
+.starburst,
+.hud-corner,
+.ticker,
+.aurora-band,
+.shooting-star,
+.stars-sm, .stars-md, .stars-lg,
+.scanlines,
+.noise {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Card & sidebar: contain layout để tránh reflow toàn trang */
+.card {
+  contain: layout style;
+  will-change: transform, box-shadow;
+}
+
+.sidebar {
+  contain: layout style paint;
+  will-change: width;
+}
+
+.hero-inner {
+  contain: layout style;
+  will-change: transform;
+}
+
+/* Ticker: GPU composite layer */
+.ticker {
+  contain: strict;
+}
+
+/* --- Mobile: tắt các hiệu ứng nặng nhất, giữ nguyên giao diện --- */
+@media (max-width: 768px), (prefers-reduced-motion: reduce) {
+
+  /* Tắt backdrop-filter trên mobile — ngốn GPU nhất */
+  .card,
+  .hero-inner,
+  .sidebar,
+  #contact .contact-item,
+  .tag {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    /* Bù bằng background đặc hơn để vẫn đẹp */
+    background: rgba(10, 15, 30, 0.75) !important;
+  }
+
+  .sidebar {
+    background: rgba(5, 10, 22, 0.92) !important;
+  }
+
+  /* Giảm animation duration để cảm giác mượt hơn */
+  .orb { animation-duration: 20s !important; }
+  .bubble { animation-duration: 30s !important; }
+  .aurora-band { animation-duration: 25s !important; }
+  .ticker { animation-duration: 40s !important; }
+
+  /* Tắt shimmer/sweep animation trên card — không ảnh hưởng hiệu ứng chính */
+  .card::before { animation: none !important; }
+  .card::after  { animation: none !important; }
+
+  /* Giảm số bubble hiển thị */
+  .bubble2, .bubble4 { display: none; }
+
+  /* Tắt noise (không cần thiết trên mobile) */
+  .noise { display: none; }
+
+  /* Tắt scanline animation */
+  .scanlines { animation: none !important; }
+
+  /* Shooting star: đơn giản hơn */
+  .shooting-star:nth-child(2),
+  .shooting-star:nth-child(3) { display: none; }
+
+  /* Stars: chỉ dùng layer nhỏ */
+  .stars-md, .stars-lg { display: none; }
+
+  /* Starburst: tắt 2/3 */
+  .starburst2, .starburst3 { display: none; }
+
+  /* Aurora bands: tắt band 3 */
+  .aurora-band3 { display: none; }
+
+  /* Flare: tắt 1 */
+  .flare2 { display: none; }
+
+  /* Section head glitch: tắt animation nặng */
+  .section-head h2::before,
+  .section-head h2::after {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+
+  /* Giảm box-shadow layers */
+  .card {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.40) !important;
+  }
+  .card:hover {
+    box-shadow: 0 8px 24px rgba(0,0,0,0.50) !important;
+  }
+
+  /* Tắt waterShine và chromeSweep */
+  @keyframes waterShine { 0%,100% { transform: none; } }
+  @keyframes chromeSweep { 0%,100% { left: -120%; } }
+}
+
+/* --- Low-end device: prefers-reduced-motion (accessibility + cấu hình yếu) --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.1s !important;
+  }
+
+  .orb, .bubble, .flare, .starburst,
+  .aurora-band, .shooting-star,
+  .stars-sm, .stars-md, .stars-lg {
+    animation: none !important;
+  }
+}
+
+/* --- Tối ưu font rendering --- */
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeSpeed;
+}
+
+/* --- Tắt pointer-events trên decoration elements để tránh hit-test cost --- */
+.orb, .bubble, .flare, .starburst,
+.hud-corner, .aurora-band, .shooting-star,
+.stars-layer, .scanlines, .noise,
+.stripe-accent, .neon-line-top {
+  pointer-events: none !important;
+}
+
+/* --- image-rendering tối ưu --- */
+img {
+  image-rendering: -webkit-optimize-contrast;
+  decoding: async;
+}

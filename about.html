@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
+  <!-- Performance hints -->
+  <meta http-equiv="x-dns-prefetch-control" content="on">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Giới thiệu — Portfolio</title>
@@ -57,7 +62,7 @@
 <div class="hud-corner hud-br"></div>
 
 <nav class="sidebar">
-  <div class="logo"><img src="images/logo.png" alt="Logo"></div>
+  <div class="logo"><img loading="lazy" decoding="async" src="images/logo.png" alt="Logo"></div>
   <ul class="sidebar-menu">
     <li><a href="index.html"><i class="fa-solid fa-house"></i><span class="text">Trang chủ</span></a></li>
     <li><a href="about.html" class="active"><i class="fa-solid fa-user"></i><span class="text">Giới thiệu</span></a></li>
@@ -77,7 +82,7 @@
 
   <div class="card reveal"><span class="corner-br"></span>
     <div class="profile-wrap">
-      <img src="images/avatar.jpg" alt="Avatar" class="avatar-sm">
+      <img loading="lazy" decoding="async" src="images/avatar.jpg" alt="Avatar" class="avatar-sm">
       <div class="bio">
         <p>
           Xin chào! em là Trần Đức Hoàng, là sinh viên năm nhất của ngành Công nghệ kỹ thuật xây dựng, trường Đại học Công Nghệ, Đại học Quốc Gia Hà Nội. Với niềm đam mê mãnh liệt trong việc kiến tạo những sản phẩm chất lượng và mang lại giá trị thực tiễn.Em sẽ luôn không ngừng học hỏi và đổi mới tư duy để vượt qua những giới hạn của bản thân.
@@ -98,19 +103,6 @@
     </div>
   </div>
 </section>
-
-<!-- CD Disc — dark iridescent purple/blue -->
-<div class="cd-wrapper">
-  <div class="cd-disc">
-    <div class="cd-surface"></div>
-    <div class="cd-swirl"></div>
-    <div class="cd-grooves"></div>
-    <div class="cd-hub"></div>
-    <div class="cd-hole"></div>
-    <div class="cd-rim"></div>
-    <div class="cd-scatter"></div>
-  </div>
-</div>
 
 <div class="credit">© Trần Đức Hoàng</div>
 <script src="script.js"></script>
