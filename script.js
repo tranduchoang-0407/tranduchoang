@@ -51,3 +51,38 @@ glowTargets.forEach(el => {
     el.style.setProperty('--my', y);
   });
 });
+
+// === Holographic CD cursor interaction ===
+const cdDisc = document.querySelector('.cd-disc');
+const cdSpecular = document.querySelector('.cd-specular');
+
+if (cdDisc) {
+  cdDisc.addEventListener('mousemove', e => {
+    const rect = cdDisc.getBoundingClientRect();
+    const cx = rect.left + rect.width / 2;
+    const cy = rect.top + rect.height / 2;
+    const dx = e.clientX - cx;
+    const dy = e.clientY - cy;
+
+    // Tilt
+    const rx = (-dy / rect.height * 30).toFixed(2);
+    const ry = ( dx / rect.width  * 30).toFixed(2);
+
+
+
+    // Specular highlight follows cursor
+    const px = ((e.clientX - rect.left) / rect.width  * 100).toFixed(1);
+    const py = ((e.clientY - rect.top)  / rect.height * 100).toFixed(1);
+    if (cdSpecular) {
+      cdSpecular.style.background = `radial-gradient(ellipse 38% 38% at ${px}% ${py}%, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.35) 30%, transparent 65%)`;
+      cdSpecular.style.opacity = '1';
+    }
+  });
+
+  cdDisc.addEventListener('mouseleave', () => {
+
+
+
+    if (cdSpecular) cdSpecular.style.opacity = '0';
+  });
+}
